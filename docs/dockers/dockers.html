@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Docker_Handbook documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="dockers.html#document-dockers" class="icon icon-home"> Docker_Handbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="dockers.html#document-dockers">Docker_Handbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="dockers.html#document-dockers">Docs</a> &raquo;</li>
+        
+      <li>Docker_Handbook  documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="all-about-dockers">
+<h1>All About Dockers<a class="headerlink" href="#all-about-dockers" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="getting-started-with-docker">
+<h1>Getting Started With Docker<a class="headerlink" href="#getting-started-with-docker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-docker-on-fedora">
+<h2>Installing Docker on fedora<a class="headerlink" href="#installing-docker-on-fedora" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Install using the repository</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Set up the repository</p>
+<ul>
+<li><p class="first">Install the dnf-plugins-core package</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo dnf -y install dnf-plugins-core
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Add repo</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo dnf config-manager --add-repo \
+https://download.docker.com/linux/fedora/docker-ce.repo
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">Install Docker Engine - Community</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo dnf install docker-ce docker-ce-cli containerd.io
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Start Docker</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start docker
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Verify that Docker Engine - Community is installed correctly by
+running the hello-world image.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo docker run hello-world
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Running docker as non-root user</p>
+<blockquote>
+<div><ul class="simple">
+<li>The docker daemon always runs as the root user.</li>
+</ul>
+</div></blockquote>
+<p>If you would like to use Docker as a non-root user, you can add your user
+to the “docker” group with something like:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo usermod -aG docker &lt;your-user&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">For more details refer <a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/fedora/">https://docs.docker.com/install/linux/docker-ce/fedora/</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-basic-operations">
+<h2>Docker Basic Operations<a class="headerlink" href="#docker-basic-operations" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>docker create</strong> - creates a container but does not start it.</p>
+<blockquote>
+<div><blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Usage:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">docker</span> <span class="pre">create</span> <span class="pre">[OPTIONS]</span> <span class="pre">IMAGE</span> <span class="pre">[COMMAND]</span> <span class="pre">[ARG...]</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">create</span> <span class="pre">-it</span> <span class="pre">fedora</span> <span class="pre">bash</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">daniel</span> <span class="pre">-it</span> <span class="pre">fedora</span> <span class="pre">bash</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker start</strong> - starts a container.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">start</span> <span class="pre">-a</span> <span class="pre">-i</span> <span class="pre">&lt;container-name/id&gt;</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker stop</strong> - stops a running container.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">stop</span> <span class="pre">&lt;container-name/id&gt;</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker run</strong> - creates and starts a container in one operation.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--name</span> <span class="pre">test</span> <span class="pre">-it</span> <span class="pre">fedora</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker exec</strong> - creates and starts a container in one operation.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">--name</span> <span class="pre">test</span> <span class="pre">-it</span> <span class="pre">fedora</span> <span class="pre">touch</span> <span class="pre">testing.txt</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker rm</strong> - removes one or more containers.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">--force</span> <span class="pre">redis</span></code></p>
+<ul class="simple">
+<li>the above command will force remove redis container.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker rename</strong>  - renames a containers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">rename</span> <span class="pre">my_container</span> <span class="pre">my_new_container</span></code></p>
+</li>
+<li><p class="first"><strong>docker pull</strong> - pulls a image for docker registery.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">fedora</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker images</strong> - will display all the images.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">images</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker rmi</strong> - deletes one or more images</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">rmi</span> <span class="pre">fd484f19954f</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker ps</strong> - displays running containers.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">ps</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker ps --all</strong> - displays all containers(running and exited).</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">ps</span> <span class="pre">--all</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker commit</strong> -   Create a new image from a container’s changes.</p>
+</li>
+</ul>
+<p>Notes:</p>
+<ul class="simple">
+<li>Create comamnd will pull the image from repository(if the image does not exists) and will then create a container</li>
+<li>Normally if you run a container without options it will start and stop immediately, if you want keep it running you can use the command, docker <strong>run -td container_id</strong> this will use the option -t that will allocate a pseudo-TTY session and -d that will detach automatically the container (run container in background and print container ID)</li>
+<li>To Remove all stopped containers in one go run <strong>$ docker rm $(docker ps -a -q)</strong></li>
+</ul>
+<p><strong>For detailed help</strong></p>
+<ul>
+<li><p class="first">run <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">docker-&lt;cmd&gt;</span></code> eg: man <code class="docutils literal notranslate"><span class="pre">docker-create</span></code> or man <code class="docutils literal notranslate"><span class="pre">docker-run</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>or</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">&lt;cmd&gt;</span> <span class="pre">--help</span></code> eg: <cite>docker create –-help</cite></p>
+</li>
+</ul>
+</div>
+<div class="section" id="publish-or-expose-ports">
+<h2>Publish or Expose Ports<a class="headerlink" href="#publish-or-expose-ports" title="Permalink to this headline">¶</a></h2>
+<p>By default Docker containers can make connections to the outside world, but the outside world cannot connect to containers. Each outgoing connection will appear to originate from one of the host machine’s own IP addresses thanks to an iptables masquerading rule on the host machine that the Docker server creates when it starts.</p>
+<p>The Docker server creates a masquerade rule that lets containers connect to IP addresses in the outside world.
+If you want containers to accept incoming connections, you will need to provide special options when invoking <strong>docker run</strong>.</p>
+<p>By default, when you create a container, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the --publish or -p flag. This creates a firewall rule which maps a container port to a port on the Docker host. Something like below</p>
+<ul class="simple">
+<li><strong>-p host_port:container_port</strong></li>
+<li><strong>-p 8080:80</strong>        Map TCP port 80 in the container to port 8080 on the Docker host.</li>
+</ul>
+<p>If you want to expose multiple ports use the following command</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--name</span> <span class="pre">test</span> <span class="pre">-it</span> <span class="pre">-p</span> <span class="pre">8080:80</span> <span class="pre">-p</span> <span class="pre">2020:22</span> <span class="pre">fedora</span></code></p>
+<p><a class="reference external" href="mailto:roamware&#37;&#52;&#48;kb">roamware<span>&#64;</span>kb</a>:~$ sudo docker port dbserver 22/tcp -&gt; 0.0.0.0:4203 3306/tcp
+-&gt; 0.0.0.0:3306 3306/tcp -&gt; 0.0.0.0:4504 <a class="reference external" href="mailto:roamware&#37;&#52;&#48;kb">roamware<span>&#64;</span>kb</a>:~$</p>
+</div>
+<div class="section" id="map-a-directory-on-host-to-a-container">
+<h2>Map a directory on host to a container<a class="headerlink" href="#map-a-directory-on-host-to-a-container" title="Permalink to this headline">¶</a></h2>
+<p>If you want to map a directory on the host to a docker container</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-v</span> <span class="pre">$HOSTDIR:$DOCKERDIR</span> <span class="pre">&lt;container-name/id&gt;</span></code></div></blockquote>
+</div>
+<div class="section" id="privileged-docker">
+<h2>Privileged Docker<a class="headerlink" href="#privileged-docker" title="Permalink to this headline">¶</a></h2>
+<p>If you see this error <strong>Failed to get D-Bus connection: Operation not permitted</strong> refere this section</p>
+<p>By default, Docker containers are “unprivileged” and cannot, for example, run a Docker daemon inside a Docker container. This is because by default a container is not allowed to access any devices, but a “privileged” container is given access to all devices (see the documentation on cgroups devices).</p>
+<p>When the operator executes <strong>docker run --privileged</strong>, Docker will enable access to all devices on the host as well as set some configuration in AppArmor or SELinux to allow the container nearly all the same access to the host as processes running outside containers on the host. Additional information about running with --privileged is available on the Docker Blog.</p>
+<p>If you want to limit access to a specific device or devices you can use the --device flag. It allows you to specify one or more devices that will be accessible within the container.</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--device=/dev/snd:/dev/snd</span> <span class="pre">...</span></code></p>
+<p>By default, the container will be able to read, write, and mknod these devices.</p>
+<p>In addition to --privileged, the operator can have fine grain control over the capabilities using --cap-add and --cap-drop. By default, Docker has a default list of capabilities that are kept.</p>
+<p>In Short</p>
+<p>If you want to use systemtcl to start/stop serivce inside container run with privileged you should be able to start/stop serivce after that.</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--privileged</span> <span class="pre">-t</span> <span class="pre">-i</span> <span class="pre">--rm</span> <span class="pre">ubuntu:latest</span> <span class="pre">bash</span></code></p>
+</div>
+<div class="section" id="debugging-help">
+<h2>Debugging help<a class="headerlink" href="#debugging-help" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>docker logs</strong> -  Fetch the logs of a container.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">hello-world</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">--tail</span> <span class="pre">10</span> <span class="pre">3f840a82aabe</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>docker inspect</strong> - Return low-level information on Docker objects</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">inspect</span> <span class="pre">&lt;container-name/id&gt;</span></code></p>
+<ul class="simple">
+<li>If you want to get the ip address of container</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">inspect</span> <span class="pre">--format='{{range</span> <span class="pre">.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'</span> <span class="pre">$INSTANCE_ID</span></code></p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-in-docker">
+<h2>Docker-in-Docker<a class="headerlink" href="#docker-in-docker" title="Permalink to this headline">¶</a></h2>
+<p>If you have Docker 0.6, all you have to do is:</p>
+<p>docker run -privileged -t -i jpetazzo/dind</p>
+<p>This will download my special Docker image (we will see later why it is special), and execute it in the new privileged mode. By default, it will run a local docker daemon, and drop you into a shell. In that shell, let’s try a classical “Docker 101” command:</p>
+<p><a class="reference external" href="https://www.docker.com/blog/docker-can-now-run-within-docker/">https://www.docker.com/blog/docker-can-now-run-within-docker/</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Daniel Raj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
